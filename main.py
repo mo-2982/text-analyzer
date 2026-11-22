@@ -10,6 +10,16 @@ def clean_text(text):
     words = text.split()
     return words
 
+def count_words(words):
+    counts = {}
+    for word in words:
+        if word in counts:
+           counts[word]+= 1
+        else:
+            counts[word] = 1
+    return counts
+
 text = read_file("sample.txt")
 words = clean_text(text)
-print(words)
+counts = count_words(words)
+print(counts)
