@@ -3,5 +3,13 @@ def read_file(path):
         content = f.read()
     return content
 
+def clean_text(text):
+    text=text.lower()
+    for mark in ".,!?":
+        text = text.replace(mark, "")
+    words = text.split()
+    return words
+
 text = read_file("sample.txt")
-print(text)
+words = clean_text(text)
+print(words)
