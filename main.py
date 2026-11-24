@@ -36,9 +36,28 @@ def count_sentences(text):
         
     return count
 
-text = read_file("sample.txt")
-words = clean_text(text)
+def write_report(path, total_words, sentences, longest, top):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"Total words: {total_words}\n")
+        f.write(f"sentences: {sentences}\n")
+        f.write(f"longest: {longest}\n")
+        f.write("Top words:\n")
+        for word, count in top:
+            f.write(f"{word}: {count}\n")
+            
+def main():
+    text = read_file("sample.txt")
+    words = clean_text(text)
+    counts = count_words(words)
 
-print("Total words:", len(words))
-print("Sentences:", count_sentences(text))
-print("Longest word:", longest_word(words))
+    total = len(words)
+    sentences = count_sentences(text)
+    longest = longest_word(words)
+    top = top_words(counts, 10)
+
+    write_report("report.txt", total, sentences, longest, top)
+    print("Report saved to report.txt")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,14 @@
+Total words: 37
+sentences: 6
+longest: intelligence
+Top words:
+python: 3
+is: 3
+to: 2
+artificial: 2
+intelligence: 2
+practice: 2
+a: 1
+popular: 1
+programming: 1
+language: 1
