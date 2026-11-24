@@ -19,7 +19,12 @@ def count_words(words):
             counts[word] = 1
     return counts
 
+def top_words(counts, n=10):
+    pairs = list(counts.items())
+    sorted_pairs = sorted(pairs, key=lambda pair:pair[1], reverse=True)
+    return  sorted_pairs[:n]
+
 text = read_file("sample.txt")
 words = clean_text(text)
 counts = count_words(words)
-print(counts)
+print(top_words(counts, 5))
